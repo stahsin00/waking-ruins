@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bf037lyp0272g"]
+
+[ext_resource type="PackedScene" uid="uid://dbv3kfnb2h8tm" path="res://nodes/player.tscn" id="1_jfp0g"]
+[ext_resource type="PackedScene" uid="uid://djyxjp7f3hqh7" path="res://nodes/plant.tscn" id="2_y6s47"]
+
+[node name="Room0" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_jfp0g")]
+position = Vector2(0, -64)
+
+[node name="Plant" parent="." instance=ExtResource("2_y6s47")]
+position = Vector2(0, 32)
+current_stage = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
