@@ -29,6 +29,9 @@ func interact():
 	_update_visual()
 
 func advance_turn():
+	if _is_player_on_tile():
+		return
+		
 	if current_stage == 0:
 		turns_since_harvest += 1
 		if turns_since_harvest >= regrowth_delay:
@@ -37,6 +40,9 @@ func advance_turn():
 	elif current_stage < growth_colors.size():
 		current_stage += 1
 		_update_visual()
+
+func is_blocking() -> bool:
+	return current_stage > 0
 #endregion
 
 #region Private Methods
@@ -45,4 +51,10 @@ func _update_visual():
 		visual.color = Color.TRANSPARENT
 	else:
 		visual.color = growth_colors[current_stage - 1]
+
+func _is_player_on_tile() -> bool:
+	var player = get_tree().get_first_node_in_group("player")
+	if player:
+		return global_position.distance_to(player.global_position) < 1.0
+	return false
 #endregion

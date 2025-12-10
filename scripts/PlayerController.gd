@@ -13,6 +13,7 @@ var facing_direction: Vector2 = Vector2.DOWN
 
 #region Lifecycle
 func _ready():
+	add_to_group("player")
 	target_position = global_position
 #endregion
 
@@ -41,9 +42,12 @@ func _handle_input():
 	
 	if direction != Vector2.ZERO:
 		facing_direction = direction
-		target_position = global_position + direction * tile_size
-		is_moving = true
-		_end_turn()
+
+		var next_position = global_position + direction * tile_size
+		if _can_move_to(next_position):
+			target_position = next_position
+			is_moving = true
+			_end_turn()
 #endregion
 
 #region Movement
@@ -57,6 +61,26 @@ func _handle_movement(delta: float):
 	
 	var direction = (target_position - global_position).normalized()
 	global_position += direction * move_speed * tile_size * delta
+
+func _can_move_to(next_position: Vector2) -> bool:
+	var space_state = get_world_2d().direct_space_state
+	var query = PhysicsRayQueryParameters2D.create(
+		global_position,
+		next_position
+	)
+	query.exclude = [self]
+	
+	var result = space_state.intersect_ray(query)
+	
+	if result:
+		var hit_object = result.collider
+
+		if hit_object.has_method("is_blocking"):
+			return not hit_object.is_blocking()
+
+		return false
+	
+	return true
 #endregion
 
 #region Interaction
