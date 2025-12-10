@@ -1,37 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://dnoxkxwqyowdr"]
+[gd_scene load_steps=3 format=3 uid="uid://dnoxkxwqyowdr"]
 
-[ext_resource type="Script" path="res://scripts/PlayerController.gd" id="1_fscen"]
-[ext_resource type="Texture2D" uid="uid://g6ijeurrmrny" path="res://icon.svg" id="1_n1kr3"]
-[ext_resource type="Script" path="res://scripts/PlantTile.gd" id="3_n1u7g"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x75rh"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmx5s"]
+[ext_resource type="PackedScene" uid="uid://dbv3kfnb2h8tm" path="res://nodes/player.tscn" id="1_fufw2"]
+[ext_resource type="PackedScene" uid="uid://djyxjp7f3hqh7" path="res://nodes/plant.tscn" id="2_jrv2v"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Player" type="CharacterBody2D" parent="."]
-script = ExtResource("1_fscen")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_x75rh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_n1kr3")
+[node name="Player" parent="." instance=ExtResource("1_fufw2")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Plant" type="StaticBody2D" parent="."]
-position = Vector2(0, -32)
-script = ExtResource("3_n1u7g")
+[node name="Plant" parent="." instance=ExtResource("2_jrv2v")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plant"]
-shape = SubResource("RectangleShape2D_nmx5s")
-
-[node name="ColorRect" type="ColorRect" parent="Plant"]
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
+[node name="Plant2" parent="." instance=ExtResource("2_jrv2v")]
+position = Vector2(-96, -32)
+current_stage = 1

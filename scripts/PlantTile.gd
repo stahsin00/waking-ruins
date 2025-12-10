@@ -2,15 +2,18 @@ extends StaticBody2D
 
 #region Temporary Graphics
 @export var growth_colors: Array[Color] = [
-	Color.DARK_GREEN,      # Stage 1
-	Color.GREEN,           # Stage 2
-	Color.YELLOW_GREEN     # Stage 3
+	Color.DARK_GREEN,      
+	Color.GREEN,           
+	Color.YELLOW_GREEN     
 ]
 @onready var visual: ColorRect = $ColorRect
 #endregion
 
 #region Variables
-var current_stage: int = 0
+@export var current_stage: int = 0
+
+@export var regrowth_delay: int = 2
+var turns_since_harvest: int = 0
 #endregion
 
 #region Lifecycle
@@ -22,10 +25,16 @@ func _ready():
 #region Public Methods
 func interact():
 	current_stage = 0
+	turns_since_harvest = 0
 	_update_visual()
 
 func advance_turn():
-	if current_stage < growth_colors.size():
+	if current_stage == 0:
+		turns_since_harvest += 1
+		if turns_since_harvest >= regrowth_delay:
+			current_stage = 1
+			_update_visual()
+	elif current_stage < growth_colors.size():
 		current_stage += 1
 		_update_visual()
 #endregion
