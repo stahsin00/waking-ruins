@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq8q1lgc5d3iu"]
+
+[ext_resource type="PackedScene" uid="uid://dbv3kfnb2h8tm" path="res://nodes/player.tscn" id="1_rs00v"]
+[ext_resource type="PackedScene" uid="uid://djyxjp7f3hqh7" path="res://nodes/plant.tscn" id="2_kvp4x"]
+
+[node name="Room2" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("1_rs00v")]
+position = Vector2(0, -64)
+
+[node name="Plant" parent="." instance=ExtResource("2_kvp4x")]
+position = Vector2(-96, -32)
+growth_colors = Array[Color]([Color(0.110664, 0.357319, 0.390175, 1), Color(0.486275, 0.564706, 0.921569, 1), Color(0.673667, 0.6364, 0.86, 1)])
+current_stage = 1
+regrowth_delay = 5
+
+[node name="Plant3" parent="." instance=ExtResource("2_kvp4x")]
+position = Vector2(-96, -128)
+growth_colors = Array[Color]([Color(0.110664, 0.357319, 0.390175, 1), Color(0.486275, 0.564706, 0.921569, 1), Color(0.673667, 0.6364, 0.86, 1)])
+regrowth_delay = 5
+
+[node name="Plant2" parent="." instance=ExtResource("2_kvp4x")]
+current_stage = 1
