@@ -63,21 +63,14 @@ func _handle_movement(delta: float):
 	global_position += direction * move_speed * tile_size * delta
 
 func _can_move_to(next_position: Vector2) -> bool:
-	var space_state = get_world_2d().direct_space_state
-	var query = PhysicsRayQueryParameters2D.create(
-		global_position,
-		next_position
-	)
-	query.exclude = [self]
+	var collision = move_and_collide((next_position - global_position), true, 0.1, true)
 	
-	var result = space_state.intersect_ray(query)
-	
-	if result:
-		var hit_object = result.collider
-
+	if collision:
+		var hit_object = collision.get_collider()
+		
 		if hit_object.has_method("is_blocking"):
 			return not hit_object.is_blocking()
-
+		
 		return false
 	
 	return true
