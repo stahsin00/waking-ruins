@@ -62,16 +62,26 @@ func _handle_movement(delta: float):
 	var direction = (target_position - global_position).normalized()
 	global_position += direction * move_speed * tile_size * delta
 
-func _can_move_to(next_position: Vector2) -> bool:
-	var collision = move_and_collide((next_position - global_position), true, 0.1, true)
+func _can_move_to(target_pos: Vector2) -> bool:
+	# Get all bodies at target position
+	var space_state = get_world_2d().direct_space_state
+	var query = PhysicsPointQueryParameters2D.new()
+	query.position = target_pos
+	query.collide_with_areas = false
+	query.collide_with_bodies = true
 	
-	if collision:
-		var hit_object = collision.get_collider()
+	var results = space_state.intersect_point(query)
+	
+	for result in results:
+		var hit_object = result.collider
 		
+		# Check if blocking
 		if hit_object.has_method("is_blocking"):
-			return not hit_object.is_blocking()
-		
-		return false
+			if hit_object.is_blocking():
+				return false
+		else:
+			# No is_blocking method = always blocks (walls)
+			return false
 	
 	return true
 #endregion
