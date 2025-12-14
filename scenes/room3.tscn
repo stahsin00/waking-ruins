@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1g4ikbpon58l"]
+
+[ext_resource type="PackedScene" uid="uid://dbv3kfnb2h8tm" path="res://nodes/player.tscn" id="1_8tv0y"]
+[ext_resource type="PackedScene" uid="uid://c8x2brbuxb8hd" path="res://nodes/slow_plant.tscn" id="2_ww3q6"]
+[ext_resource type="PackedScene" uid="uid://djyxjp7f3hqh7" path="res://nodes/plant.tscn" id="3_l7dh6"]
+[ext_resource type="TileSet" uid="uid://oqa3qnvr1goh" path="res://tileset/prototype_tileset.tres" id="4_ql6vx"]
+
+[node name="Room2" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("1_8tv0y")]
+position = Vector2(0, -64)
+
+[node name="SlowPlant" parent="." instance=ExtResource("2_ww3q6")]
+
+[node name="Plant2" parent="." instance=ExtResource("3_l7dh6")]
+current_stage = 1
+
+[node name="SlowPlant2" parent="." instance=ExtResource("2_ww3q6")]
+position = Vector2(-96, -128)
+current_stage = 0
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(-16, -16)
+tile_set = ExtResource("4_ql6vx")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65538, 0, 0)
