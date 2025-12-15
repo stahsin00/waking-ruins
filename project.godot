@@ -13,3 +13,8 @@ config_version=5
 config/name="Waking Ruins"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.21, 0.16856, 0.1428, 1)
