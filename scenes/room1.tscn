@@ -1,18 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnoxkxwqyowdr"]
+[gd_scene load_steps=5 format=3 uid="uid://dnoxkxwqyowdr"]
 
 [ext_resource type="TileSet" uid="uid://b6yqkmucqox7y" path="res://tileset/castle_tiles.tres" id="1_50sjj"]
 [ext_resource type="PackedScene" uid="uid://dbv3kfnb2h8tm" path="res://nodes/player.tscn" id="1_fufw2"]
 [ext_resource type="PackedScene" uid="uid://djyxjp7f3hqh7" path="res://nodes/plant.tscn" id="2_jrv2v"]
+[ext_resource type="TileSet" uid="uid://crfkieyywogmq" path="res://tileset/moss_tiles.tres" id="2_nmfnp"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Room1" type="Node2D"]
 
-[node name="Floors" type="TileMap" parent="."]
+[node name="World" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Floors" type="TileMap" parent="World"]
 position = Vector2(16, -16)
 tile_set = ExtResource("1_50sjj")
 format = 2
 layer_0/tile_data = PackedInt32Array(131074, 327680, 5, 65538, 327680, 4, 2, 327680, 4, -65534, 327680, 4, -131070, 327680, 4, -196606, 327680, 4, -262142, 327680, 4, -327678, 327680, 4, -393214, 327680, 3, 131073, 262144, 5, 65537, 262144, 4, 1, 262144, 4, -65535, 262144, 4, -131071, 262144, 4, -196607, 262144, 4, -262143, 262144, 4, -327679, 262144, 4, -393215, 262144, 3, 131072, 262144, 5, 65536, 262144, 4, 0, 262144, 4, -65536, 262144, 4, -131072, 262144, 4, -196608, 262144, 4, -262144, 262144, 4, -327680, 262144, 4, -393216, 262144, 3, 196607, 262144, 5, 131071, 262144, 4, 65535, 262144, 4, -1, 262144, 4, -65537, 262144, 4, -131073, 262144, 4, -196609, 262144, 4, -262145, 262144, 4, -327681, 262144, 3, 196606, 262144, 5, 131070, 262144, 4, 65534, 262144, 4, -2, 262144, 4, -65538, 262144, 4, -131074, 262144, 4, -196610, 262144, 4, -262146, 262144, 4, -327682, 262144, 3, 196605, 262144, 5, 131069, 262144, 4, 65533, 262144, 4, -3, 262144, 4, -65539, 262144, 4, -131075, 262144, 4, -196611, 262144, 4, -262147, 262144, 4, -327683, 262144, 3, 196604, 262144, 5, 131068, 262144, 4, 65532, 262144, 4, -4, 262144, 4, -65540, 262144, 4, -131076, 262144, 4, -196612, 262144, 4, -262148, 262144, 4, -327684, 262144, 3, 196603, 262144, 5, 131067, 262144, 4, 65531, 262144, 4, -5, 262144, 4, -65541, 262144, 4, -131077, 262144, 4, -196613, 262144, 4, -262149, 262144, 4, -327685, 262144, 3, 196602, 262144, 5, 131066, 262144, 4, 65530, 262144, 4, -6, 262144, 4, -65542, 262144, 4, -131078, 262144, 4, -196614, 262144, 4, -262150, 262144, 4, -327686, 262144, 3, 196601, 196608, 5, 131065, 196608, 4, 65529, 196608, 4, -7, 196608, 4, -65543, 196608, 4, -131079, 196608, 4, -196615, 196608, 4, -262151, 196608, 4, -327687, 196608, 3)
 
-[node name="Walls" type="TileMap" parent="."]
+[node name="Moss" type="TileMap" parent="World"]
+tile_set = ExtResource("2_nmfnp")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65537, 196609, 0, -1, 65537, 4, -65536, 327681, 5, -131072, 393217, 2, -65538, 196609, 0, -65539, 196609, 0, -65540, 196609, 3, -4, 131073, 6, -3, 65537, 4, -2, 65537, 4, -262144, 131073, 6, -262143, 327681, 5, -327680, 196609, 3, -327679, 393217, 2, 131066, 1, 5, 131067, 393217, 1, 65530, 1, 1, 65538, 327681, 5, 65537, 196609, 2, 1, 196609, 3, 2, 131073, 3, -65534, 1, 1, 65536, 65537, 0, -327684, 196609, 3, -262148, 131073, 6, -262147, 65537, 4, -327683, 196609, 0, -262146, 393217, 3, -327682, 262145, 0, -196610, 65537, 6, -327681, 393217, 1)
+
+[node name="Walls" type="TileMap" parent="World"]
 position = Vector2(16, -16)
 tile_set = ExtResource("1_50sjj")
 format = 2
@@ -25,8 +37,14 @@ zoom = Vector2(2, 2)
 [node name="Player" parent="." instance=ExtResource("1_fufw2")]
 position = Vector2(0, -64)
 
-[node name="Plant" parent="." instance=ExtResource("2_jrv2v")]
+[node name="Plants" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Plant2" parent="." instance=ExtResource("2_jrv2v")]
+[node name="Plant" parent="Plants" instance=ExtResource("2_jrv2v")]
+
+[node name="Plant2" parent="Plants" instance=ExtResource("2_jrv2v")]
 position = Vector2(-96, -32)
 current_stage = 1

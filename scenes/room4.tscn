@@ -1,19 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://la753brodnwo"]
+[gd_scene load_steps=6 format=3 uid="uid://la753brodnwo"]
 
 [ext_resource type="TileSet" uid="uid://b6yqkmucqox7y" path="res://tileset/castle_tiles.tres" id="1_x3080"]
 [ext_resource type="PackedScene" uid="uid://dbv3kfnb2h8tm" path="res://nodes/player.tscn" id="2_46nos"]
+[ext_resource type="TileSet" uid="uid://crfkieyywogmq" path="res://tileset/moss_tiles.tres" id="2_in6j7"]
 [ext_resource type="PackedScene" uid="uid://c8x2brbuxb8hd" path="res://nodes/slow_plant.tscn" id="3_4cepl"]
 [ext_resource type="PackedScene" uid="uid://djyxjp7f3hqh7" path="res://nodes/plant.tscn" id="4_isu6n"]
 
-[node name="Room2" type="Node2D"]
+[node name="Room4" type="Node2D"]
 
-[node name="Floors" type="TileMap" parent="."]
+[node name="World" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Floors" type="TileMap" parent="World"]
 position = Vector2(16, -16)
 tile_set = ExtResource("1_x3080")
 format = 2
 layer_0/tile_data = PackedInt32Array(196611, 327680, 5, 131075, 327680, 4, 65539, 327680, 4, 3, 327680, 4, -65533, 327680, 4, -131069, 327680, 4, -196605, 327680, 4, -262141, 327680, 4, -327677, 327680, 4, -393213, 327680, 4, -458749, 327680, 4, -524285, 327680, 3, 196610, 262144, 5, 131074, 262144, 4, 65538, 262144, 4, 2, 262144, 4, -65534, 262144, 4, -131070, 262144, 4, -196606, 262144, 4, -262142, 262144, 4, -327678, 262144, 4, -393214, 262144, 4, -458750, 262144, 4, -524286, 262144, 3, 196609, 262144, 5, 131073, 262144, 4, 65537, 262144, 4, 1, 262144, 4, -65535, 262144, 4, -131071, 262144, 4, -196607, 262144, 4, -262143, 262144, 4, -327679, 262144, 4, -393215, 262144, 4, -458751, 262144, 4, -524287, 262144, 3, 196608, 262144, 5, 131072, 262144, 4, 65536, 262144, 4, 0, 262144, 4, -65536, 262144, 4, -131072, 262144, 4, -196608, 262144, 4, -262144, 262144, 4, -327680, 262144, 4, -393216, 262144, 4, -458752, 262144, 4, -524288, 262144, 3, 262143, 262144, 5, 196607, 262144, 4, 131071, 262144, 4, 65535, 262144, 4, -1, 262144, 4, -65537, 262144, 4, -131073, 262144, 4, -196609, 262144, 4, -262145, 262144, 4, -327681, 262144, 4, -393217, 262144, 4, -458753, 262144, 3, 262142, 262144, 5, 196606, 262144, 4, 131070, 262144, 4, 65534, 262144, 4, -2, 262144, 4, -65538, 262144, 4, -131074, 262144, 4, -196610, 262144, 4, -262146, 262144, 4, -327682, 262144, 4, -393218, 262144, 4, -458754, 262144, 3, 262141, 262144, 5, 196605, 262144, 4, 131069, 262144, 4, 65533, 262144, 4, -3, 262144, 4, -65539, 262144, 4, -131075, 262144, 4, -196611, 262144, 4, -262147, 262144, 4, -327683, 262144, 4, -393219, 262144, 4, -458755, 262144, 3, 262140, 262144, 5, 196604, 262144, 4, 131068, 262144, 4, 65532, 262144, 4, -4, 262144, 4, -65540, 262144, 4, -131076, 262144, 4, -196612, 262144, 4, -262148, 262144, 4, -327684, 262144, 4, -393220, 262144, 4, -458756, 262144, 3, 262139, 262144, 5, 196603, 262144, 4, 131067, 262144, 4, 65531, 262144, 4, -5, 262144, 4, -65541, 262144, 4, -131077, 262144, 4, -196613, 262144, 4, -262149, 262144, 4, -327685, 262144, 4, -393221, 262144, 4, -458757, 262144, 3, 262138, 262144, 5, 196602, 262144, 4, 131066, 262144, 4, 65530, 262144, 4, -6, 262144, 4, -65542, 262144, 4, -131078, 262144, 4, -196614, 262144, 4, -262150, 262144, 4, -327686, 262144, 4, -393222, 262144, 4, -458758, 262144, 3, 262137, 262144, 5, 196601, 262144, 4, 131065, 262144, 4, 65529, 262144, 4, -7, 262144, 4, -65543, 262144, 4, -131079, 262144, 4, -196615, 262144, 4, -262151, 262144, 4, -327687, 262144, 4, -393223, 262144, 4, -458759, 262144, 3, 262136, 196608, 5, 196600, 196608, 4, 131064, 196608, 4, 65528, 196608, 4, -8, 196608, 4, -65544, 196608, 4, -131080, 196608, 4, -196616, 196608, 4, -262152, 196608, 4, -327688, 196608, 4, -393224, 196608, 4, -458760, 196608, 3)
 
-[node name="Walls" type="TileMap" parent="."]
+[node name="Moss" type="TileMap" parent="World"]
+tile_set = ExtResource("2_in6j7")
+format = 2
+layer_0/tile_data = PackedInt32Array(-458759, 196609, 3, -393223, 1, 4, -327687, 65537, 6, -458758, 262145, 0, -458757, 327681, 6, -393222, 327681, 5, -458756, 131073, 0, -458755, 262145, 0, -393220, 131073, 6, -393219, 327681, 5, -458754, 393217, 1, 131075, 196609, 6, 65539, 131073, 3, 65538, 196609, 0, 131074, 65537, 4, 131073, 131073, 6, 131076, 393217, 1, 3, 1, 1, -65538, 1, 3, -65537, 262145, 4, -131073, 262145, 4, -131074, 196609, 1, -131075, 131073, 6, -196611, 196609, 3, -196610, 196609, 0, -196609, 196609, 0, -196608, 262145, 1, -131072, 262145, 1, -1, 65537, 4, -2, 196609, 2, -3, 65537, 0, -65536, 393217, 3, -262144, 196609, 5, -262143, 327681, 5, -327679, 393217, 2, -327680, 196609, 3, 0, 1, 2, 65536, 131073, 6, 65537, 65537, 3, 1, 393217, 2, 196601, 1, 5, 131065, 1, 1, 196602, 393217, 1, -196613, 393217, 1, -196614, 65537, 1, -131078, 65537, 6, -393214, 65537, 6, -458750, 1, 1)
+
+[node name="Walls" type="TileMap" parent="World"]
 position = Vector2(16, -16)
 tile_set = ExtResource("1_x3080")
 format = 2
@@ -24,20 +36,46 @@ position = Vector2(-48, -80)
 zoom = Vector2(1.5, 1.5)
 
 [node name="Player" parent="." instance=ExtResource("2_46nos")]
-position = Vector2(0, -64)
+position = Vector2(-32, -128)
 
-[node name="SlowPlant" parent="." instance=ExtResource("3_4cepl")]
-position = Vector2(-192, -192)
+[node name="Plants" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SlowPlant" parent="Plants" instance=ExtResource("3_4cepl")]
+position = Vector2(-64, -96)
 current_stage = 2
 
-[node name="SlowPlant2" parent="." instance=ExtResource("3_4cepl")]
-position = Vector2(-192, -224)
+[node name="SlowPlant2" parent="Plants" instance=ExtResource("3_4cepl")]
+position = Vector2(-64, -64)
 current_stage = 3
 
-[node name="SlowPlant3" parent="." instance=ExtResource("3_4cepl")]
-position = Vector2(-158, -224)
+[node name="SlowPlant3" parent="Plants" instance=ExtResource("3_4cepl")]
+position = Vector2(-32, -96)
 
-[node name="FastPlant" parent="." instance=ExtResource("4_isu6n")]
+[node name="SlowPlant4" parent="Plants" instance=ExtResource("3_4cepl")]
+position = Vector2(0, -96)
+current_stage = 2
+
+[node name="SlowPlant5" parent="Plants" instance=ExtResource("3_4cepl")]
+position = Vector2(0, -64)
+current_stage = 3
+
+[node name="SlowPlant6" parent="Plants" instance=ExtResource("3_4cepl")]
+position = Vector2(0, -32)
+current_stage = 2
+
+[node name="SlowPlant7" parent="Plants" instance=ExtResource("3_4cepl")]
+position = Vector2(-32, -32)
+
+[node name="SlowPlant8" parent="Plants" instance=ExtResource("3_4cepl")]
+position = Vector2(-64, -32)
+current_stage = 2
+
+[node name="FastPlant" parent="Plants" instance=ExtResource("4_isu6n")]
+position = Vector2(-32, -64)
 growth_colors = Array[Color]([Color(0.921569, 0.8, 0.215686, 1), Color(0.92, 0.619773, 0.1012, 1), Color(0.72, 0.2772, 0.1296, 1)])
 current_stage = 1
 regrowth_delay = 1
