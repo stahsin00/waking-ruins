@@ -27,10 +27,11 @@ zoom = Vector2(1.5, 1.5)
 position = Vector2(0, -64)
 
 [node name="SlowPlant" parent="." instance=ExtResource("2_abser")]
+position = Vector2(-128, -32)
 
-[node name="Plant2" parent="." instance=ExtResource("2_kvp4x")]
+[node name="Plant" parent="." instance=ExtResource("2_kvp4x")]
 current_stage = 1
 
 [node name="SlowPlant2" parent="." instance=ExtResource("2_abser")]
-position = Vector2(-96, -128)
+position = Vector2(-128, -96)
 current_stage = 0
