@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgxupe1jfu5ip"
-path="res://.godot/imported/castle-tileset.png-98385e31a2d874e53343c6a12f0b7868.ctex"
+uid="uid://dm6riwjpmn17v"
+path="res://.godot/imported/tileset-moss-blob47.png-54218f31d358d98b31f69b610dff7812.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/castle-tileset.png"
-dest_files=["res://.godot/imported/castle-tileset.png-98385e31a2d874e53343c6a12f0b7868.ctex"]
+source_file="res://assets/tiles/tileset-moss-blob47.png"
+dest_files=["res://.godot/imported/tileset-moss-blob47.png-54218f31d358d98b31f69b610dff7812.ctex"]
 
 [params]
 

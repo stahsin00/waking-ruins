@@ -1,12 +1,8 @@
 extends StaticBody2D
 
 #region Temporary Graphics
-@export var growth_colors: Array[Color] = [
-	Color.DARK_GREEN,      
-	Color.GREEN,           
-	Color.YELLOW_GREEN     
-]
-@onready var visual: ColorRect = $ColorRect
+@export var growth_sprites: Array[Texture2D] = []
+@onready var visual: Sprite2D = $Sprite2D
 #endregion
 
 #region Variables
@@ -37,7 +33,7 @@ func advance_turn():
 		if turns_since_harvest >= regrowth_delay:
 			current_stage = 1
 			_update_visual()
-	elif current_stage < growth_colors.size():
+	elif current_stage < growth_sprites.size():
 		current_stage += 1
 		_update_visual()
 
@@ -48,9 +44,10 @@ func is_blocking() -> bool:
 #region Private Methods
 func _update_visual():
 	if current_stage == 0:
-		visual.color = Color.TRANSPARENT
+		visual.visible = false
 	else:
-		visual.color = growth_colors[current_stage - 1]
+		visual.visible = true
+		visual.texture = growth_sprites[current_stage - 1]
 
 func _is_player_on_tile() -> bool:
 	var player = get_tree().get_first_node_in_group("player")

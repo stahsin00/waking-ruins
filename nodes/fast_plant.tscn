@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://f2rqy7y2nwgk"]
+
+[ext_resource type="Script" path="res://scripts/PlantTile.gd" id="1_i8t25"]
+[ext_resource type="Texture2D" uid="uid://0yd3g677n523" path="res://assets/plants/fast-plant-1.png" id="2_ccj5y"]
+[ext_resource type="Texture2D" uid="uid://bv24osfb3t8ju" path="res://assets/plants/fast-plant-2.png" id="3_msc5f"]
+[ext_resource type="Texture2D" uid="uid://ddppilafb75eb" path="res://assets/plants/fast-plant-3.png" id="4_ooewd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmx5s"]
+
+[node name="FastPlant" type="StaticBody2D"]
+position = Vector2(-32, -64)
+script = ExtResource("1_i8t25")
+growth_sprites = Array[Texture2D]([ExtResource("2_ccj5y"), ExtResource("3_msc5f"), ExtResource("4_ooewd")])
+current_stage = 1
+regrowth_delay = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nmx5s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

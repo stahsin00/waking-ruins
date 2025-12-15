@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm6riwjpmn17v"
-path="res://.godot/imported/tileset-moss-blob47.png-b127995fb8b66a66a2f38b305e5fe281.ctex"
+uid="uid://ddppilafb75eb"
+path="res://.godot/imported/fast-plant-3.png-29c98857fb67f6632988a5c95887b035.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tileset-moss-blob47.png"
-dest_files=["res://.godot/imported/tileset-moss-blob47.png-b127995fb8b66a66a2f38b305e5fe281.ctex"]
+source_file="res://assets/plants/fast-plant-3.png"
+dest_files=["res://.godot/imported/fast-plant-3.png-29c98857fb67f6632988a5c95887b035.ctex"]
 
 [params]
 

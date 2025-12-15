@@ -1,18 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://djyxjp7f3hqh7"]
+[gd_scene load_steps=6 format=3 uid="uid://djyxjp7f3hqh7"]
 
 [ext_resource type="Script" path="res://scripts/PlantTile.gd" id="1_xbdjh"]
+[ext_resource type="Texture2D" uid="uid://b74v5qmit4i0t" path="res://assets/plants/plant-1.png" id="2_j8jh2"]
+[ext_resource type="Texture2D" uid="uid://dxo03m23m1t0r" path="res://assets/plants/plant-2.png" id="3_pg0mc"]
+[ext_resource type="Texture2D" uid="uid://8gv0f2er4we" path="res://assets/plants/plant-3.png" id="4_2q3ku"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nmx5s"]
 
 [node name="Plant" type="StaticBody2D"]
 position = Vector2(0, -32)
 script = ExtResource("1_xbdjh")
+growth_sprites = Array[Texture2D]([ExtResource("2_j8jh2"), ExtResource("3_pg0mc"), ExtResource("4_2q3ku")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_nmx5s")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
+[node name="Sprite2D" type="Sprite2D" parent="."]

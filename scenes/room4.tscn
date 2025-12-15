@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dbv3kfnb2h8tm" path="res://nodes/player.tscn" id="2_46nos"]
 [ext_resource type="TileSet" uid="uid://crfkieyywogmq" path="res://tileset/moss_tiles.tres" id="2_in6j7"]
 [ext_resource type="PackedScene" uid="uid://c8x2brbuxb8hd" path="res://nodes/slow_plant.tscn" id="3_4cepl"]
-[ext_resource type="PackedScene" uid="uid://djyxjp7f3hqh7" path="res://nodes/plant.tscn" id="4_isu6n"]
+[ext_resource type="PackedScene" uid="uid://f2rqy7y2nwgk" path="res://nodes/fast_plant.tscn" id="5_e5be2"]
 
 [node name="Room4" type="Node2D"]
 
@@ -74,8 +74,4 @@ position = Vector2(-32, -32)
 position = Vector2(-64, -32)
 current_stage = 2
 
-[node name="FastPlant" parent="Plants" instance=ExtResource("4_isu6n")]
-position = Vector2(-32, -64)
-growth_colors = Array[Color]([Color(0.921569, 0.8, 0.215686, 1), Color(0.92, 0.619773, 0.1012, 1), Color(0.72, 0.2772, 0.1296, 1)])
-current_stage = 1
-regrowth_delay = 1
+[node name="FastPlant" parent="Plants" instance=ExtResource("5_e5be2")]
