@@ -14,6 +14,10 @@ config/name="Waking Ruins"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+RoomManager="*res://scripts/RoomManager.gd"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

@@ -96,6 +96,7 @@ func _interact():
 		var interactable = result.collider
 		if interactable.has_method("interact"):
 			interactable.interact()
+			RoomManager.check_room_cleared() 
 
 func _end_turn():
 	get_tree().call_group("plants", "advance_turn")
