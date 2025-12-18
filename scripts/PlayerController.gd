@@ -6,6 +6,8 @@ extends CharacterBody2D
 @export var tile_size: int = 32
 @export var move_speed: float = 4.0
 
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+
 var target_position: Vector2
 var is_moving: bool = false
 var facing_direction: Vector2 = Vector2.DOWN
@@ -15,6 +17,7 @@ var facing_direction: Vector2 = Vector2.DOWN
 func _ready():
 	add_to_group("player")
 	target_position = global_position
+	_update_animation()
 #endregion
 
 #region Input
@@ -42,6 +45,7 @@ func _handle_input():
 	
 	if direction != Vector2.ZERO:
 		facing_direction = direction
+		_update_animation()
 
 		var next_position = global_position + direction * tile_size
 		if _can_move_to(next_position):
@@ -80,6 +84,21 @@ func _can_move_to(target_pos: Vector2) -> bool:
 		return false
 	
 	return true
+#endregion
+
+#region Animation
+func _update_animation():
+	if not animated_sprite:
+		return
+	
+	if facing_direction.y < 0:
+		animated_sprite.play("player_up")
+	elif facing_direction.y > 0:
+		animated_sprite.play("player_down")
+	elif facing_direction.x < 0:
+		animated_sprite.play("player_left")
+	elif facing_direction.x > 0:
+		animated_sprite.play("player_right")
 #endregion
 
 #region Interaction
